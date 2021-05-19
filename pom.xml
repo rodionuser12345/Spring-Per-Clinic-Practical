@@ -18,7 +18,7 @@
 
     <groupId>com.rodionsprinframework</groupId>
     <artifactId>pet-clinic-practical</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.2</version>
     <name>pet-clinic-practical</name>
     <description>Demo project for Spring Boot</description>
 
@@ -49,6 +49,7 @@
                             <checkModificationExclude>pom.xml</checkModificationExclude>
                         </checkModificationExcludes>
                         <goals>install</goals>
+                        <autoVersionSubmodules>true</autoVersionSubmodules>
                     </configuration>
                 </plugin>
             </plugins>
@@ -57,7 +58,7 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/rodionuser12345/Spring-Pet-Clinic-Practical.git</developerConnection>
-      <tag>HEAD</tag>
+      <tag>pet-clinic-practical-0.0.2</tag>
   </scm>
 
 </project>
