@@ -18,7 +18,7 @@
 
     <groupId>com.rodionsprinframework</groupId>
     <artifactId>pet-clinic-practical</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>pet-clinic-practical</name>
     <description>Demo project for Spring Boot</description>
 
@@ -57,7 +57,7 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/rodionuser12345/Spring-Pet-Clinic-Practical.git</developerConnection>
-      <tag>pet-clinic-practical-0.0.1</tag>
+      <tag>HEAD</tag>
   </scm>
 
 </project>
