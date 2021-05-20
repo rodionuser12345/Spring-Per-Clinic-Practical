@@ -1,11 +1,11 @@
 package com.rodionsprinframework.petclinicpractical.services.map;
 
 import com.rodionsprinframework.petclinicpractical.model.Pet;
-import com.rodionsprinframework.petclinicpractical.services.CrudService;
+import com.rodionsprinframework.petclinicpractical.services.PetService;
 
 import java.util.Set;
 
-public class PetMapService extends AbstractMapService<Pet, Long> implements CrudService<Pet, Long> {
+public class PetMapService extends AbstractMapService<Pet, Long> implements PetService {
 
 
     @Override
