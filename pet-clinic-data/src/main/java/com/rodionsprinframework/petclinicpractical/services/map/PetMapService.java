@@ -2,9 +2,11 @@ package com.rodionsprinframework.petclinicpractical.services.map;
 
 import com.rodionsprinframework.petclinicpractical.model.Pet;
 import com.rodionsprinframework.petclinicpractical.services.PetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class PetMapService extends AbstractMapService<Pet, Long> implements PetService {
 
 

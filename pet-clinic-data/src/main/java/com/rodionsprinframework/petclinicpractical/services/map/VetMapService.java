@@ -2,9 +2,11 @@ package com.rodionsprinframework.petclinicpractical.services.map;
 
 import com.rodionsprinframework.petclinicpractical.model.Vet;
 import com.rodionsprinframework.petclinicpractical.services.VetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class VetMapService extends AbstractMapService<Vet, Long> implements VetService {
 
     @Override
