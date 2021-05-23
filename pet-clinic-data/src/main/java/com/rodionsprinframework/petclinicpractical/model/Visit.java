@@ -1,7 +1,9 @@
 package com.rodionsprinframework.petclinicpractical.model;
 
+import javax.persistence.Entity;
 import java.time.LocalDateTime;
 
+@Entity
 public class Visit extends BaseEntity{
 
     private LocalDateTime date;
