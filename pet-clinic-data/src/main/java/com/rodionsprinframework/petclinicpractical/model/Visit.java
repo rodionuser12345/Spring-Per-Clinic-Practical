@@ -1,13 +1,20 @@
 package com.rodionsprinframework.petclinicpractical.model;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "Visit")
 public class Visit extends BaseEntity{
 
+    @Column(name = "date")
     private LocalDateTime date;
+
+    @Column(name = "description")
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "pet_id")
     private Pet pet;
 
     public LocalDateTime getDate() {
