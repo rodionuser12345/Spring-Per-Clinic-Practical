@@ -1,9 +1,16 @@
 package com.rodionsprinframework.petclinicpractical.model;
 
+import lombok.*;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "Types")
 public class PetType extends BaseEntity {
@@ -15,7 +22,4 @@ public class PetType extends BaseEntity {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 }
