@@ -1,7 +1,7 @@
 package com.rodionsprinframework.petclinicpractical.controllers;
 
 import com.rodionsprinframework.petclinicpractical.model.Owner;
-import com.rodionsprinframework.petclinicpractical.services.jpa.OwnerJpaService;
+import com.rodionsprinframework.petclinicpractical.services.OwnerService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -15,7 +15,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.*;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -23,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class OwnerControllerTest {
 
     @Mock
-    OwnerJpaService ownerJpaService;
+    OwnerService ownerService;
 
     @InjectMocks
     OwnerController ownerController;
@@ -46,9 +47,9 @@ class OwnerControllerTest {
     }
 
     @Test
-    void listOwner() throws Exception {
+    void listOwnerTest() throws Exception {
 
-        when(ownerJpaService.findAll()).thenReturn(ownerSet);
+        when(ownerService.findAll()).thenReturn(ownerSet);
 
         mockMvc.perform(MockMvcRequestBuilders.get("/owners"))
                 .andExpect(status().isOk())
@@ -58,9 +59,9 @@ class OwnerControllerTest {
     }
 
     @Test
-    void listOwnerByIndex() throws Exception {
+    void listOwnerByIndexTest() throws Exception {
 
-        when(ownerJpaService.findAll()).thenReturn(ownerSet);
+        when(ownerService.findAll()).thenReturn(ownerSet);
 
         mockMvc.perform(MockMvcRequestBuilders.get("/owners/index"))
                 .andExpect(status().isOk())
@@ -70,7 +71,7 @@ class OwnerControllerTest {
     }
 
     @Test
-    void findOwner() throws Exception {
+    void findOwnerTest() throws Exception {
 
         mockMvc.perform(MockMvcRequestBuilders.get("/owners/find"))
                 .andExpect(status().isOk())
@@ -79,4 +80,18 @@ class OwnerControllerTest {
 //        verifyZeroInteractions(ownerJpaService);
 
     }
+
+    @Test
+    void showOwnerTest() throws Exception {
+
+        when(ownerService.findById(anyLong())).thenReturn(Owner.builder().id(1L).build());
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/owners/{ownerId}", 1L))
+                .andExpect(status().isOk())
+                .andExpect(view().name("owners/ownerDetails"))
+                .andExpect(model().attribute("owner", hasProperty("id",is(1L))));
+
+    }
+
+
 }
